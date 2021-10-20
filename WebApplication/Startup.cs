@@ -15,9 +15,11 @@ namespace WebApplication
 {
     public class Startup
     {
+        private string connectionString;
         public Startup(IConfiguration configuration)
         {
             Configuration = configuration;
+            connectionString = Configuration.GetConnectionString("ADOconnection");
         }
 
         public IConfiguration Configuration { get; }
