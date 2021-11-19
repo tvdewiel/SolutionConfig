@@ -47,7 +47,7 @@ namespace DataLayer
         }
         public List<(int, string)> ReadFromDB(int n = 10)
         {
-            List<(int, string)> competities = new List<(int, string)>();
+            List<(int, string)> logs = new List<(int, string)>();
             SqlConnection connection = getConnection();
             string query = "SELECT Top(@n) * FROM dbo.logTable ORDER BY id DESC";
             using (SqlCommand command = connection.CreateCommand())
@@ -63,10 +63,10 @@ namespace DataLayer
                     {
                         string info = (string)dataReader["info"];
                         int id = (int)dataReader["id"];
-                        competities.Add((id, info));
+                        logs.Add((id, info));
                     }
                     dataReader.Close();
-                    return competities;
+                    return logs;
                 }
                 catch (Exception ex)
                 {

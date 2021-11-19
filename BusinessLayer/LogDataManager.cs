@@ -17,8 +17,6 @@ namespace BusinessLayer
             this.dao = dao;
             this.debug = debug;
         }
-
-        //public string logInfo { get; set; }
         public string LogToDB(string logInfo)
         {
             if (!string.IsNullOrWhiteSpace(logInfo))
